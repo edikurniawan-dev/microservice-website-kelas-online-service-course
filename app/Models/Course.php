@@ -11,6 +11,11 @@ class Course extends Model
 
     protected $table = 'courses';
 
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
+    ];
+
     protected $fillable = [
         'name',
         'certificate',
@@ -18,7 +23,7 @@ class Course extends Model
         'type',
         'status',
         'price',
-        'lavel',
+        'level',
         'description',
         'mentor_id',
 

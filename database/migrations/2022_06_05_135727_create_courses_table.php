@@ -21,7 +21,7 @@ return new class extends Migration
             $table->enum('type', ['free', 'premium']);
             $table->enum('status', ['draf', 'published']);
             $table->integer('price')->default(0)->nullable();
-            $table->enum('lavel', ['all-level', 'beginner', 'intermediate', 'advanced']);
+            $table->enum('level', ['all-level', 'beginner', 'intermediate', 'advanced']);
             $table->longText('description');
             $table->foreignId('mentor_id')->constrained('mentors')->onDelete('cascade');
             $table->timestamps();
