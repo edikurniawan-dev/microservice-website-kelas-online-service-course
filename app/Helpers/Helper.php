@@ -12,14 +12,13 @@ function getUser($userId)
         $data['http_code'] = $response->getStatusCode();
         return $data;
     } catch (\Throwable $th) {
-        return response()->json([
+        return [
             'status' => 'error',
             'http_code' => 500,
-            'message' => "service user unavailable"
-        ]);
+            'message' => 'service user unavailable'
+        ];
     }
 }
-
 
 function getUserByIds($userIds = [])
 {
@@ -27,11 +26,11 @@ function getUserByIds($userIds = [])
 
     try {
         if (count($userIds) === 0) {
-            return response()->json([
+            return [
                 'status' => 'success',
                 'http_code' => 200,
                 'data' => []
-            ]);
+            ];
         }
 
         $response = Http::timeout(10)->get($url, [
@@ -41,10 +40,10 @@ function getUserByIds($userIds = [])
         $data['http_code'] = $response->getStatusCode();
         return $data;
     } catch (\Throwable $th) {
-        return response()->json([
+        return [
             'status' => 'error',
             'http_code' => 500,
             'message' => "service user unavailable"
-        ]);
+        ];
     }
 }
