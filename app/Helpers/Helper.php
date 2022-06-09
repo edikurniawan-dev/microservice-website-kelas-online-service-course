@@ -33,9 +33,7 @@ function getUserByIds($userIds = [])
             ];
         }
 
-        $response = Http::timeout(10)->get($url, [
-            'user_ids[]' => $userIds
-        ]);
+        $response = Http::timeout(10)->get($url, ['user_ids[]' => $userIds]);
         $data = $response->json();
         $data['http_code'] = $response->getStatusCode();
         return $data;
@@ -43,7 +41,7 @@ function getUserByIds($userIds = [])
         return [
             'status' => 'error',
             'http_code' => 500,
-            'message' => "service user unavailable"
+            'message' => 'service user unavailable'
         ];
     }
 }

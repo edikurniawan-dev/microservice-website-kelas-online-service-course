@@ -41,6 +41,6 @@ class Course extends Model
 
     public function images()
     {
-        return $this->hasMany('App\Models\ImagesCourse')->orderBy('id', 'desc');
+        return $this->hasMany('App\Models\ImageCourse')->orderBy('id', 'desc');
     }
 }
